@@ -43,6 +43,13 @@ services:
   backend:
     <<: *backend_defaults
     platform: linux/amd64
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - ./apps:/home/frappe/frappe-bench/apps  # Map the apps directory
+      - ./sites:/home/frappe/frappe-bench/sites  # Map the sites directory
+    environment:
+      - TZ=Europe/Zurich
 
   frontend:
     <<: *customizable_image
