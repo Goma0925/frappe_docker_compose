@@ -11,6 +11,7 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
+      - apps:/home/frappe/frappe-bench/apps
     environment:
       DB_HOST: db
       DB_PORT: "3306"
@@ -98,7 +99,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: admin
       MARIADB_ROOT_PASSWORD: admin
-      
+
     volumes:
       - db-data:/var/lib/mysql
 
@@ -214,6 +215,7 @@ volumes:
   redis-cache-data:
   sites:
   logs:
+  apps:
 
 networks:
   frappe_network:
